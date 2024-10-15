@@ -37,6 +37,7 @@ gem "bootsnap", require: false
 gem 'bootstrap', '~> 5.3.3'
 gem 'dartsass-sprockets'
 gem 'jquery-rails'
+gem 'haml'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -52,6 +53,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'html2haml'
+  gem 'pry'
 end
 
 group :test do
