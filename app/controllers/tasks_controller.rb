@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new(title: "Gaza")
+    @task = Task.new
   end
 
   # GET /tasks/1/edit
