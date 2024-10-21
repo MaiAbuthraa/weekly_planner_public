@@ -34,4 +34,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_19_161716) do
     t.bigint "category_id"
     t.index ["category_id"], name: "index_tasks_on_category_id"
   end
+
+  add_foreign_key "tasks", "categories"
 end
