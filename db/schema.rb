@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_12_154022) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_19_161716) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "plpgsql"
   enable_extension "tablefunc"
   enable_extension "uuid-ossp"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "nickname"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nickname"], name: "index_categories_on_nickname", unique: true
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_tasks_on_category_id"
   end
 end

@@ -13,5 +13,13 @@
   %div
     = form.label :content, style: "display: block"
     = form.text_area :content
+
+  %div
+    = form.label :status, style: "display: block"
+    = form.select :status, options_for_select(Task.statuses.to_a, Task.statuses[task.status])
+
+  %div
+    = form.label :category, style: "display: block"
+    = form.select :category_id, options_for_select(Category.pluck(:title, :id), task.category_id)
   %div
     = form.submit

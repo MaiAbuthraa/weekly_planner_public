@@ -1,5 +1,12 @@
 class Task < ApplicationRecord
+  belongs_to :category
+
   validates :title, presence: true
+
+  enum :status, [ :draft, :published, :archived, :trashed ]
+  #enum :status, %i(draft published archived trashed)
+  #enum :status, { draft: 0, published: 1, archived: 2, trashed: 3 }
+  #
   ### uniqueness
   #validates :email, :uniqueness => true
   #validates :name, :uniqueness => { :case_sensitive => false }
