@@ -21,5 +21,8 @@
   %div
     = form.label :category, style: "display: block"
     = form.select :category_id, options_for_select(Category.pluck(:title, :id), task.category_id)
+
+  %div
+    = form.collection_check_boxes :tag_ids, Tag.all, :id, :title
   %div
     = form.submit
