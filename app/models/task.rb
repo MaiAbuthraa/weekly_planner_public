@@ -5,6 +5,8 @@ class Task < ApplicationRecord
 
   validates :title, presence: true
 
+  encrypts :title
+
   enum :status, [ :draft, :published, :archived, :trashed ]
   #enum :status, %i(draft published archived trashed)
   #enum :status, { draft: 0, published: 1, archived: 2, trashed: 3 }
