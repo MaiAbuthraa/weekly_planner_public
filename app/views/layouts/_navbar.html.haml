@@ -1,14 +1,15 @@
-%nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  %a.navbar-brand{:href => "#"} Navbar
-  %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
-  #navbarNav.collapse.navbar-collapse
-    %ul.navbar-nav
-      - if user_signed_in?
-        %li.nav-item
-          = link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link"
-      - unless admin_signed_in? || user_signed_in?
-        %li.nav-item
-          = link_to "Signin as admin", new_admin_session_path, class: "nav-link"
-        %li.nav-item
-          = link_to "Signin as user", new_user_session_path, class: "nav-link"
+:ruby
+  active_devise = (current_admin || current_user)
+  navbar_class = active_devise.class == Admin ? 'bg-dark navbar-dark' : 'bg-ligh navbar-light'
+
+%nav.navbar.navbar-expand-lg{class: navbar_class}
+  %a.navbar-brand{:href => "#"} Weekly Planner
+  %ul.navbar-nav
+    - if active_devise
+      = render "layouts/navbars/#{active_devise.class.name.underscore}"
+    - else
+      %li.nav-item
+        = link_to "Signin as admin", new_admin_session_path, class: "nav-link"
+      %li.nav-item
+        = link_to "Signin as user", new_user_session_path, class: "nav-link"
+

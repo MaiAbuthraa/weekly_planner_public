@@ -1,8 +1,4 @@
 %p{:style => "color: green"}= notice
 = render @task
 %div
-  = link_to "Edit this task", edit_me_task_path(@task)
-  |
-  \#{link_to "Back to tasks", me_tasks_path}
-
-  \#{button_to "Destroy this task", [:me, @task], method: :delete}
+  = link_to "Back to tasks", me_tasks_path
