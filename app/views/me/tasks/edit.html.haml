@@ -1,0 +1,8 @@
+- content_for :title, "Editing task"
+%h1 Editing task
+= render "form", task: @task
+%br/
+%div
+  = link_to "Show this task", [:me, @task]
+  |
+  \#{link_to "Back to tasks", me_tasks_path}

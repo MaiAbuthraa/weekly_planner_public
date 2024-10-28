@@ -38,6 +38,7 @@ gem 'bootstrap', '~> 5.3.3'
 gem 'dartsass-sprockets'
 gem 'jquery-rails'
 gem 'haml'
+gem "devise", "~> 4.9"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -55,6 +56,7 @@ group :development do
   gem "web-console"
   gem 'html2haml'
   gem 'pry'
+  gem "faker", "~> 3.5"
 end
 
 group :test do
