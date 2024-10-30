@@ -8,6 +8,9 @@ class Task < ApplicationRecord
   encrypts :title
 
   enum :status, [ :draft, :published, :archived, :trashed ]
+
+  default_scope { order(created_at: :desc) }
+  scope :draft_tasks, -> { where(status: :draft)}
   #enum :status, %i(draft published archived trashed)
   #enum :status, { draft: 0, published: 1, archived: 2, trashed: 3 }
   #

@@ -27,10 +27,10 @@
 #       "yes": yup
 #       enabled: "ON"
 
-en:
+ar:
   hello: "Hello world"
   site_title: Weekly Planner Public
   layouts:
     navbars:
       user:
-        tasks: My Tasks
+        tasks: مهامي
