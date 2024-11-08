@@ -18,3 +18,5 @@
     = render 'layouts/navbar'
     .container-fluid
       = yield
+  = javascript_tag type: 'module' do
+    = yield :inline_javascript

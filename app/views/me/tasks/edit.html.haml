@@ -1,4 +1,6 @@
 - content_for :title, "Editing task"
+
+- content_for :login_as, @task.title
 %h1 Editing task
 = render "form", task: @task
 %br/

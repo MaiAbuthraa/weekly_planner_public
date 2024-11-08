@@ -4,6 +4,7 @@
 
 %nav.navbar.navbar-expand-lg{class: navbar_class}
   %a.navbar-brand{:href => "#"} Weekly Planner
+  %span.badge.rounded-pill.bg-warning.text-dark= content_for(:login_as) || "-"
   %ul.navbar-nav
     - if active_devise
       = render "layouts/navbars/#{active_devise.class.name.underscore}"
